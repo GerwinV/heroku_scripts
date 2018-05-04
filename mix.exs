@@ -4,22 +4,40 @@ defmodule HerokuScripts.MixProject do
   def project do
     [
       app: :heroku_scripts,
-      version: "0.1.0",
+      deps: deps(),
+      description: description(),
       elixir: "~> 1.6",
+      elixirc_paths: ["lib"],
+      name: "HerokuScripts",
+      package: package(),
+      source_url: "https://github.com/defactosoftware/heroku_scripts",
       start_permanent: Mix.env() == :dev,
-      deps: deps()
+      version: "0.0.1"
+    ]
+  end
+
+  defp description do
+    """
+    A wrapper around the pipelines of Heroku
+    """
+  end
+
+  defp package do
+    [
+      name: :heroku_scripts,
+      maintainers: ["Marcel Horlings"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/defactosoftware/heroku_scripts"}
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
-    [
-      extra_applications: [:logger]
-    ]
+    []
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    []
+    [{:ex_doc, ">= 0.0.0", only: :dev}]
   end
 end
