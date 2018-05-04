@@ -7,9 +7,16 @@ defmodule HerokuScripts do
   Runs the task that's given on the pipeline and the given stage. The name of the pipeline and stage can be found
   at Heroku. The default stages are `"review"`, `"staging"` and `"production"`
 
+  The optional 'waiting_time' argument is the amounds of miliseconds it waits untill
+  the task is killed. The waiting_time is set per environment.
+
+  The `number_of_processes` is the amount of tasks you want to run simultaneously,
+  keep in mind that each task will open its own connection with Heroku.
+
   ## Examples
 
-      iex> HerokuScripts.run_mix_task_over_pipline("app_name", "production, "GiveRaiseToPeople)
+      iex> HerokuScripts.run_mix_task_over_pipline("app_name", "production, "GiveRaiseToPeople")
+      :ok
 
   """
   def run_mix_task_over_pipline(
@@ -36,6 +43,8 @@ defmodule HerokuScripts do
         Task.await(pid, number_of_processes)
       end
     end)
+
+    :ok
   end
 
   defp environments(pipeline, pipe) do
