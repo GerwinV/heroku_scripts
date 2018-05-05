@@ -15,11 +15,11 @@ defmodule HerokuScripts do
 
   ## Examples
 
-      iex> HerokuScripts.run_mix_task_over_pipline("app_name", "production, "GiveRaiseToPeople")
+      iex> HerokuScripts.run_pipeline_task("app_name", "production, "GiveRaiseToPeople")
       :ok
 
   """
-  def run_mix_task_over_pipline(
+  def run_pipeline_task(
         pipeline,
         pipe,
         task,
