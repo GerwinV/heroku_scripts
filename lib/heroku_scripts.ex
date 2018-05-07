@@ -23,9 +23,11 @@ defmodule HerokuScripts do
         pipeline,
         pipe,
         task,
-        waiting_time \\ 60000,
-        number_of_processes \\ 3
+        opts \\ %{}
       ) do
+    waiting_time = Map.get(opts, :waiting_time, 60000)
+    number_of_processes = Map.get(opts, :number_of_processes, 3)
+
     pipeline
     |> environments(pipe)
     |> Enum.chunk_every(waiting_time)
