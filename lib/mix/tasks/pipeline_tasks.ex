@@ -11,6 +11,7 @@ defmodule Mix.Tasks.PipelineTasks do
   that are opened to Heroku.
 
   It needs at least 3 arguments to run
+
   ## Usage
 
       # These arguments are required

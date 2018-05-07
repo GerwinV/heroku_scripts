@@ -31,7 +31,7 @@ defmodule HerokuScripts do
     pipeline
     |> environments(pipe)
     |> Enum.chunk_every(waiting_time)
-    |> Enum.reduce(fn environments, acc ->
+    |> Enum.reduce(fn environments, _acc ->
       pids =
         Enum.reduce(environments, [], fn environment, pids ->
           [

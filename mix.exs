@@ -12,7 +12,7 @@ defmodule HerokuScripts.MixProject do
       package: package(),
       source_url: "https://github.com/defactosoftware/heroku_scripts",
       start_permanent: Mix.env() == :dev,
-      version: "0.0.2"
+      version: "0.0.3"
     ]
   end
 

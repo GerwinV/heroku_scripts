@@ -9,7 +9,7 @@ The package can be installed by adding `heroku_scripts` to your list of dependen
 ```elixir
 def deps do
   [
-    {:heroku_scripts, "~> 0.0.2", only: dev}
+    {:heroku_scripts, "~> 0.0.3", only: dev}
   ]
 end
 ```
@@ -20,7 +20,11 @@ You can run your mix tasks with the following line. Where `pipeline_name` should
 be your name of your pipeline in heroku. The stage should be the stage that you want to target (the defaults are `"review"`, `"staging"` and `"production"`). And `YourTask` should be replaced by the mix task you want to run.
 
 ```bash
-$ mix PipelineTasks pipeline_name stage YourTask
+# These arguments are required
+$ mix PipelineTasks app_name stage YourTask
+
+# With extra options
+$ mix PipelineTasks app_name stage YourTask waiting_time=30000 number_of_processes=2
 ```
 
 
