@@ -30,7 +30,7 @@ defmodule HerokuScripts do
 
     pipeline
     |> environments(pipe)
-    |> Enum.chunk_every(waiting_time)
+    |> Enum.chunk_every(number_of_processes)
     |> Enum.reduce(fn environments, _acc ->
       pids =
         Enum.reduce(environments, [], fn environment, pids ->
@@ -42,7 +42,7 @@ defmodule HerokuScripts do
         end)
 
       for pid <- pids do
-        Task.await(pid, number_of_processes)
+        Task.await(pid, waiting_time)
       end
     end)
 

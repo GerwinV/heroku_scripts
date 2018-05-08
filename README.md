@@ -9,7 +9,7 @@ The package can be installed by adding `heroku_scripts` to your list of dependen
 ```elixir
 def deps do
   [
-    {:heroku_scripts, "~> 0.0.3", only: dev}
+    {:heroku_scripts, "~> 0.0.4", only: dev}
   ]
 end
 ```
