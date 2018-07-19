@@ -25,8 +25,8 @@ defmodule HerokuScripts do
         task,
         opts \\ %{}
       ) do
-    waiting_time = Map.get(opts, :waiting_time, 60000)
-    number_of_processes = Map.get(opts, :number_of_processes, 3)
+    waiting_time = Map.get(opts, "waiting_time", "60000") |> String.to_integer()
+    number_of_processes = Map.get(opts, "number_of_processes", "3") |> String.to_integer()
 
     pipeline
     |> environments(pipe)
